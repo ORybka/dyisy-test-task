@@ -66,11 +66,13 @@ function createGame() {
   game.sort((a, b) => (a.rating < b.rating) ? 1 : -1)
   game.forEach((el) => {
     addGame(el);
+    addGameLabel(el);
     addImage(el);
     addDescription(el);
     addStars(el, el.stars);
     addGameRating(el);
     addBtn();
+    addResponsible();
   });
 }
 
@@ -81,21 +83,28 @@ function addGame({ id }) {
   gameContainer.appendChild(gameElement);
 };
 
+function addGameLabel({ label }) {
+  gameLabel = document.createElement('span');
+  gameLabel.className = 'game-label';
+  gameLabel.innerHTML = `${label}`; 
+  gameElement.appendChild(gameLabel);
+  if(label === '') {
+    gameElement.removeChild(gameElement.firstChild);
+  }
+};
+
 function addImage({ name, label }) {
   imageElement = document.createElement('div');
   imageElement.className = 'image-container';
-  imageElement.innerHTML = `<span class="game-label">${label}</span><div class="image" style="background-image: url(&quot;assets/${name}.jpg&quot;);"></div>`;
-  if(label === '') {
-    imageElement.removeChild(imageElement.firstChild);
-  }
+  imageElement.innerHTML = `<div class="image" style="background-image: url(&quot;assets/${name}.jpg&quot;);"></div>`;
   gameElement.appendChild(imageElement);
 };
 
-function addDescription({ description, price, bonus}) {
+function addDescription({ name, description, price, bonus}) {
   bonus = bonus.join(' ')
   infoElement = document.createElement('div');
   infoElement.className = 'description-container';
-  infoElement.innerHTML = `<span class="description">${description}</span><span class="price">&euro;${price}</span><span class="bonus">${bonus}</span>`;
+  infoElement.innerHTML = `<span class="name">${name}</span><span class="description">${description}</span><span class="price">&euro;${price}</span><span class="bonus">${bonus}</span>`;
   gameElement.appendChild(infoElement);
 };
 
@@ -126,20 +135,28 @@ function addStars({ userNum }, countStars) {
       container.lastElementChild.classList.add('star');
     }
   }
-
-  gameElement.appendChild(raitingElement);
+  return raitingElement;
 };
 
 function addGameRating({ rating }) {
   rateElement = document.createElement('div');
   rateElement.className = 'rating';
   rateElement.innerHTML = `<h1>${rating}</h1>`;
-  gameElement.appendChild(rateElement);
+  return rateElement;
 };
 
 function addBtn() {
   btnElement = document.createElement('div');
   btnElement.className = 'btn-container';
   btnElement.innerHTML = '<button class="btn">Play</button>';
-  gameElement.appendChild(btnElement);
+  return btnElement; 
 };
+
+function addResponsible() {
+  column = document.createElement('div');
+  column.className = 'column';
+  column.appendChild(raitingElement);
+  column.appendChild(rateElement);
+  column.appendChild(btnElement);
+  gameElement.appendChild(column);
+}
