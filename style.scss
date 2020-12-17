@@ -47,3 +47,44 @@ html {
 .container {
   height: 100vh;
 }
+
+/****** GENERAL ******/
+.main-container {
+  height: 100vh;
+  background-image: url(assets/background.jpg);
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  min-width: 85rem;
+}
+
+.content-container {
+  width: 100%;
+
+  .menu-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #0b1f55;
+  }
+  .menu-title {
+    width: 10rem;
+    height: 3rem;
+    margin: 0 1rem;
+    background-color: #3854a3;
+  }
+
+  .game-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .game-title {
+    width: 10rem;
+    height: 3rem;
+    margin: 0 1rem;
+    background-color: #75a338;
+    text-transform: uppercase;
+  }
+}

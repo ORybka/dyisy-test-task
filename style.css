@@ -40,4 +40,56 @@ html {
 .container {
   height: 100vh;
 }
+
+/****** GENERAL ******/
+.main-container {
+  height: 100vh;
+  background-image: url(assets/background.jpg);
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  min-width: 85rem;
+}
+
+.content-container {
+  width: 100%;
+}
+
+.content-container .menu-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #0b1f55;
+}
+
+.content-container .menu-title {
+  width: 10rem;
+  height: 3rem;
+  margin: 0 1rem;
+  background-color: #3854a3;
+}
+
+.content-container .game-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.content-container .game-title {
+  width: 10rem;
+  height: 3rem;
+  margin: 0 1rem;
+  background-color: #75a338;
+  text-transform: uppercase;
+}
 /*# sourceMappingURL=style.css.map */
