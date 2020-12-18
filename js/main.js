@@ -168,7 +168,6 @@ $( document ).ready(function() {
       time: new Date(),
       btnID: parseInt(this.id),
     }
-
     console.log(data);
   })
 })
