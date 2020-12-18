@@ -160,3 +160,15 @@ function addResponsible() {
   column.appendChild(btnElement);
   gameElement.appendChild(column);
 }
+
+$( document ).ready(function() {
+  $('.btn').click(function(e) {
+    e.preventDefault();
+    let data = {
+      time: new Date(),
+      btnID: parseInt(this.id),
+    }
+
+    console.log(data);
+  })
+})
