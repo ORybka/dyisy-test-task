@@ -71,7 +71,7 @@ function createGame() {
     addDescription(el);
     addStars(el, el.stars);
     addGameRating(el);
-    addBtn();
+    addBtn(el);
     addResponsible();
   });
 }
@@ -145,10 +145,10 @@ function addGameRating({ rating }) {
   return rateElement;
 };
 
-function addBtn() {
+function addBtn({ id }) {
   btnElement = document.createElement('div');
   btnElement.className = 'btn-container';
-  btnElement.innerHTML = '<button class="btn">Play</button>';
+  btnElement.innerHTML = `<button class="btn" id="${id}">Play</button>`;
   return btnElement; 
 };
 
